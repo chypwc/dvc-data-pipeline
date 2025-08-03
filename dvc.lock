@@ -1,13 +1,13 @@
 schema: '2.0'
 stages:
   prepare_data:
-    cmd: python ./prepare_data.py
+    cmd: python ./src/prepare_data.py
     deps:
     - path: ./archive/imdb_dataset.csv
       hash: md5
       md5: 308443a50e5c993e7b8a1cdb95750026
       size: 66212309
-    - path: ./prepare_data.py
+    - path: ./src/prepare_data.py
       hash: md5
       md5: 1e7358fffce624416728dc74af245e96
       size: 696
@@ -28,7 +28,7 @@ stages:
       md5: cfa7da197088f8a5ffcc273a5e104874
       size: 46479308
   make_features:
-    cmd: python ./make_features.py
+    cmd: python ./src/make_features.py
     deps:
     - path: ./archive/test.csv
       hash: md5
@@ -38,7 +38,7 @@ stages:
       hash: md5
       md5: cfa7da197088f8a5ffcc273a5e104874
       size: 46479308
-    - path: ./make_features.py
+    - path: ./src/make_features.py
       hash: md5
       md5: 48f310fba4db44ef7703322afe067cf6
       size: 1629
@@ -58,7 +58,7 @@ stages:
       md5: 0c281fd10146ab9e8e9f2a6b51b5d543
       size: 37416227
   train:
-    cmd: python ./train.py
+    cmd: python ./src/train.py
     deps:
     - path: ./archive/train.csv
       hash: md5
@@ -68,7 +68,7 @@ stages:
       hash: md5
       md5: 0c281fd10146ab9e8e9f2a6b51b5d543
       size: 37416227
-    - path: ./train.py
+    - path: ./src/train.py
       hash: md5
       md5: 1ae30234c87e7997e5191eeed7e7b387
       size: 678
@@ -85,7 +85,7 @@ stages:
       md5: e9afe0d45f53bdccd6a2ca2121d8850b
       size: 704335
   evaluate:
-    cmd: python ./evaluate.py
+    cmd: python ./src/evaluate.py
     deps:
     - path: ./archive/model.joblib
       hash: md5
@@ -99,7 +99,7 @@ stages:
       hash: md5
       md5: ff7e4550be7b020ec2a3ce018e50a897
       size: 15817251
-    - path: ./evaluate.py
+    - path: ./src/evaluate.py
       hash: md5
       md5: b533af3b41c2a9e9f55eabff6c6ef97b
       size: 895
