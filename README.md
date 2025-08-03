@@ -14,6 +14,15 @@ https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-review
 
 ## Usage
 
+```bash
+git init
+dvc init
+
+# S3 config
+dvc remote add -d s3 s3://<bucket>/<key_prefix>/
+dvc remote modify --local s3 configpath '~/.aws/config'
+```
+
 ````bash
 # Run entire pipeline
 dvc repro
@@ -21,6 +30,11 @@ dvc repro
 # View pipeline DAG
 dvc dag
 
+# Save data
+dvc push
+```
+
+DAG
 ```bash
   +--------------+
                           | prepare_data |
@@ -41,11 +55,9 @@ dvc dag
                         ****      *      ****
                             ***   *   ***
                             +----------+
-````
+```
 
-# Check pipeline status
 
-dvc status
 
 ## Configuration
 
@@ -55,3 +67,4 @@ Edit `params.yaml` to modify:
 - Feature extraction method
 - Model hyperparameters
 - Evaluation metrics
+````
