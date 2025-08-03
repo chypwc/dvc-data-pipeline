@@ -23,7 +23,7 @@ dvc remote add -d s3 s3://<bucket>/<key_prefix>/
 dvc remote modify --local s3 configpath '~/.aws/config'
 ```
 
-````bash
+```bash
 # Run entire pipeline
 dvc repro
 
@@ -34,7 +34,8 @@ dvc dag
 dvc push
 ```
 
-DAG
+### Pipeline DAG
+
 ```bash
   +--------------+
                           | prepare_data |
@@ -57,8 +58,6 @@ DAG
                             +----------+
 ```
 
-
-
 ## Configuration
 
 Edit `params.yaml` to modify:
@@ -67,4 +66,3 @@ Edit `params.yaml` to modify:
 - Feature extraction method
 - Model hyperparameters
 - Evaluation metrics
-````
